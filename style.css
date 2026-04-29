@@ -1,49 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
 .calculator {
-    display: grid;
-    grid-template-rows: auto 1fr;
+    background-color: #1a1a2e;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+the .display-section {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    max-width: 400px;
-    margin: 0 auto;
 }
 
-.display {
-    background-color: #222;
-    color: #fff;
-    font-size: 2em;
-    padding: 10px;
+the .display {
+    background-color: #0f0f1e;
+    color: #00ff88;
+    font-size: 2.5em;
+    padding: 20px;
     text-align: right;
-    border-radius: 5px;
+    border-radius: 12px;
+    border: 2px solid #00ff88;
+    font-weight: bold;
+    word-wrap: break-word;
+    word-break: break-all;
+    min-height: 80px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+    transition: all 0.3s ease;
 }
 
-.buttons {
+the .display:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+the .mode-indicator {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+the .mode-badge {
+    background-color: #16213e;
+    color: #00ff88;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75em;
+    font-weight: bold;
+    border: 1px solid #00ff88;
+    min-width: 40px;
+    text-align: center;
+}
+
+the .mode-badge.hidden {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+the .button-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 12px;
 }
 
-.button {
-    background-color: #f0f0f0;
+the .btn {
+    padding: 18px;
+    font-size: 1.1em;
     border: none;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 1.5em;
-    transition: background-color 0.3s;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.button:hover {
-    background-color: #ddd;
+the .btn:active {
+    transform: scale(0.95);
 }
 
+the .number-btn {
+    background-color: #2a2a3e;
+    color: #ffffff;
+    border: 1px solid #404050;
+}
+
+the .number-btn:hover {
+    background-color: #3a3a4e;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+the .operator-btn {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    border: 1px solid #ff4444;
+}
+
+the .operator-btn:hover {
+    background-color: #ff5252;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
+    transform: translateY(-2px);
+}
+
+the .func-btn {
+    background-color: #4a4a6a;
+    color: #00ff88;
+    border: 1px solid #5a5a7a;
+}
+
+the .func-btn:hover {
+    background-color: #5a5a7a;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+    transform: translateY(-2px);
+}
+
+the .equals-btn {
+    background-color: #00ff88;
+    color: #1a1a2e;
+    border: 1px solid #00cc6a;
+    grid-column: span 1;
+}
+
+the .equals-btn:hover {
+    background-color: #00dd7a;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
 @media (max-width: 600px) {
     .calculator {
-        width: 100%;
-        padding: 10px;
+        padding: 20px;
     }
+
+    .display {
+        font-size: 2em;
+        padding: 15px;
+        min-height: 70px;
+    }
+
+    .btn {
+        padding: 15px;
+        font-size: 1em;
+    }
+
+    .button-grid {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .calculator {
+        padding: 15px;
+    }
+
     .display {
         font-size: 1.5em;
+        padding: 12px;
+        min-height: 60px;
     }
-    .button {
-        padding: 15px;
-        font-size: 1.2em;
+
+    .btn {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+
+    .button-grid {
+        gap: 8px;
     }
 }
